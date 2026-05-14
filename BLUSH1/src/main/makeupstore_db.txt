@@ -1,3 +1,4 @@
+-- =========================
 -- CREATE DATABASE
 -- =========================
 CREATE DATABASE makeup_store;
@@ -11,7 +12,7 @@ CREATE TABLE users (
     name VARCHAR(100),
     email VARCHAR(100),
     password VARCHAR(100),
-    role VARCHAR(20) DEFAULT 'user'   -- added role
+    role VARCHAR(20) DEFAULT 'user'
 );
 
 -- =========================
@@ -33,10 +34,31 @@ CREATE TABLE cart (
     user_id INT,
     product_id INT,
     quantity INT,
-    
-    -- Optional (recommended relationships)
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+
+    FOREIGN KEY (user_id)
+    REFERENCES users(id)
+    ON DELETE CASCADE,
+
+    FOREIGN KEY (product_id)
+    REFERENCES products(id)
+    ON DELETE CASCADE
+);
+
+-- =========================
+-- WISHLIST TABLE
+-- =========================
+CREATE TABLE wishlist (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    product_id INT,
+
+    FOREIGN KEY (user_id)
+    REFERENCES users(id)
+    ON DELETE CASCADE,
+
+    FOREIGN KEY (product_id)
+    REFERENCES products(id)
+    ON DELETE CASCADE
 );
 
 -- =========================
@@ -47,8 +69,9 @@ CREATE TABLE orders (
     user_id INT,
     total DOUBLE,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    status VARCHAR(20) DEFAULT 'confirmed',   -- added status
-    
-    -- Optional (recommended relationship)
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    status VARCHAR(20) DEFAULT 'confirmed',
+
+    FOREIGN KEY (user_id)
+    REFERENCES users(id)
+    ON DELETE CASCADE
 );
