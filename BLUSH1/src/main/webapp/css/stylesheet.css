@@ -1,0 +1,200 @@
+/* ===== GLOBAL RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e6f0ff, #f7f9fc);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: rgba(30, 30, 40, 0.95);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: 0.4s;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    background: #4f7cff;
+    transform: scale(1.1);
+}
+
+/* ===== CENTER CONTAINER ===== */
+.container, .form-box {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    text-align: center;
+    margin-top: 60px;
+    padding: 60px 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    animation: float 4s ease-in-out infinite;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #222;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: #555;
+}
+
+/* ===== FLOAT ANIMATION ===== */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ===== BUTTON ===== */
+button, .btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    background: #4f7cff;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+button:hover, .btn:hover {
+    background: #2f5bff;
+    transform: scale(1.05);
+}
+
+/* ===== PRODUCT GRID ===== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: 0.4s;
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+/* ===== LOGIN / SIGNUP BOX (CENTER POPUP STYLE) ===== */
+.form-box {
+    width: 350px;
+    margin: auto;
+    margin-top: 80px;
+    padding: 25px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+/* ===== TABLE (CART / ORDERS) ===== */
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+table th {
+    background: #4f7cff;
+    color: white;
+    padding: 12px;
+}
+
+table td {
+    text-align: center;
+    padding: 10px;
+}
+
+table tr:hover {
+    background: #f2f6ff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .form-box {
+        width: 90%;
+    }
+}
