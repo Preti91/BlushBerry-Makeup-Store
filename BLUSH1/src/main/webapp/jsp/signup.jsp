@@ -159,6 +159,20 @@ a {
             <input type="password" name="password" placeholder="Enter Password" required>
         </div>
 
+        <!-- PHONE -->
+        <div class="input-group">
+            <input type="text" name="phone"
+            value="+91 "
+            placeholder="Enter Phone Number" required>
+        </div>
+
+        <!-- ADDRESS -->
+        <div class="input-group">
+            <input type="text" name="address"
+            
+            placeholder="Enter Home Address" required>
+        </div>
+
         <button type="submit" class="btn-signup">
             <i class="fa-solid fa-user-plus"></i> Create Account
         </button>
