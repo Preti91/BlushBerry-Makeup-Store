@@ -6,14 +6,21 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String role;   // ⭐ ADD THIS
+    private String phone;      // NEW
+    private String address;    // NEW
+    private String role;
 
     public User() {}
 
-    public User(String name, String email, String password) {
+    // UPDATED CONSTRUCTOR
+    public User(String name, String email, String password,
+                String phone, String address) {
+
         this.name = name;
         this.email = email;
         this.password = password;
+        this.phone = phone;
+        this.address = address;
     }
 
     // id
@@ -52,7 +59,25 @@ public class User {
         this.password = password;
     }
 
-    // ⭐ ROLE (THIS FIXES YOUR ERROR)
+    // NEW PHONE
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    // NEW ADDRESS
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    // role
     public String getRole() {
         return role;
     }
