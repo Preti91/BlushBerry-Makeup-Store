@@ -13,15 +13,19 @@ public class UserDAO {
         try {
             Connection conn = DBConnection.getConnection();
 
-            String sql = "INSERT INTO users(name,email,password,role) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO users(name,email,password,phone,address,role) VALUES(?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, u.getName());
             ps.setString(2, u.getEmail());
             ps.setString(3, u.getPassword());
 
-            // default role = USER
-            ps.setString(4, "USER");
+            // NEW
+            ps.setString(4, u.getPhone());
+            ps.setString(5, u.getAddress());
+
+            // default role
+            ps.setString(6, "USER");
 
             int i = ps.executeUpdate();
 
@@ -59,7 +63,11 @@ public class UserDAO {
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
 
-                // ⭐ IMPORTANT FIX
+                // NEW
+                user.setPhone(rs.getString("phone"));
+                user.setAddress(rs.getString("address"));
+
+                // ROLE
                 user.setRole(rs.getString("role"));
             }
 
