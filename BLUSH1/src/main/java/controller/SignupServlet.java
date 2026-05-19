@@ -18,19 +18,24 @@ public class SignupServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        User user = new User(name, email, password);
+        // NEW
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+
+        // UPDATED CONSTRUCTOR
+        User user = new User(name, email, password, phone, address);
 
         UserDAO dao = new UserDAO();
         boolean status = dao.register(user);
 
         if (status) {
 
-            // ✅ SUCCESS → go to LOGIN page
+            // SUCCESS
             response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
 
         } else {
 
-            // ❌ FAILED → stay on signup page
+            // FAILED
             response.sendRedirect(request.getContextPath() + "/jsp/signup.jsp?error=1");
         }
     }
