@@ -52,6 +52,18 @@ public class HelpServlet extends HttpServlet {
               + "• Perfumes\n"
               + "• Customer Support";
         }
+        //forget password
+        else if (msg.contains("forgot password")
+                || msg.contains("forget password")
+                || msg.contains("reset password")
+                || msg.contains("password")) {
+
+            reply =
+                "🔐 Don't worry! If you forgot your password, please contact our helpline:\n\n"
+              + "+91 9123040662\n"
+              + "+91 8100246464\n\n"
+              + "Our team will guide you through the further steps to reset your password.";
+        }
 
         // =========================
         // LOGIN
@@ -156,18 +168,17 @@ public class HelpServlet extends HttpServlet {
         }
 
         // =========================
-        // ORDER ID DETECTION
-        // Example:
-        // ORD12345
-        // BB1001
-        // 12345
+        // ORDER / PRODUCT ID DETECTION
         // =========================
         else if (originalMsg.matches("(?i)[A-Z]{0,5}\\d{4,}")) {
 
             reply =
-                "📦 Order ID: " + originalMsg.toUpperCase() + "\n\n"
-              + "✅ Your request has been received  successfully.\n"
-              + "Our BLUSHBERRY support team will contact you shortly regarding your order update.";
+                "📦 ID Received: " + originalMsg.toUpperCase() + "\n\n"
+              + "😔 We are sorry for the inconvenience caused.\n\n"
+              + "📞 Please contact our support agents for further assistance:\n"
+              + "+91 9123040662\n"
+              + "+91 8100246464\n\n"
+              + "Our team will help you regarding replacement, refund, exchange, or product issues.";
         }
 
         // =========================
@@ -408,6 +419,28 @@ public class HelpServlet extends HttpServlet {
               + "• Men's Grooming\n"
               + "• Sanitary Pads\n"
               + "• Daily Personal Care Products 💖";
+        }
+        // =========================
+        // PRODUCT ISSUE / DAMAGED PRODUCT
+        // =========================
+        else if (msg.contains("broken")
+                || msg.contains("damage")
+                || msg.contains("damaged")
+                || msg.contains("bad quality")
+                || msg.contains("poor quality")
+                || msg.contains("issue")
+                || msg.contains("problem product")
+                || msg.contains("defect")
+                || msg.contains("duplicate")
+                || msg.contains("dispute")) {
+
+            reply =
+                "😔 We are very sorry for the inconvenience caused.\n\n"
+            
+              + "📞 You should contact our support team:\n"
+              + "+91 9123040662\n"
+              + "+91 8100246464\n\n"
+              + "Our support agents will guide you regarding replacement, return, refund, or further assistance.";
         }
 
         // =========================
